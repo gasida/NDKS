@@ -1,0 +1,9 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/focal64"
+  config.vm.box_version = "20211004.0.0"
+  #config.vm.provision "shell", inline: "apt update"
+  config.vm.provider "virtualbox" do |vb1|
+    vb1.memory = "2048"
+    vb1.cpus = "2"
+  end
+end
