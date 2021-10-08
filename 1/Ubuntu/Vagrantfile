@@ -11,6 +11,6 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |spec|
     spec.memory = "2048"
     spec.cpus = "2"
-    spec.spec.linked_clone = true
+    spec.linked_clone = true
   end
 end
