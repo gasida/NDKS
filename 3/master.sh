@@ -8,18 +8,15 @@ mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
 
-# flannel install
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+# calico install
+curl -O https://docs.projectcalico.org/manifests/calico.yaml
+kubectl apply -f calico.yaml
 
-# # calico install
-# curl -O https://docs.projectcalico.org/manifests/calico.yaml
-# kubectl apply -f calico.yaml
-
-# # calicoctl install
-# # curl -o calicoctl -O -L  "https://github.com/projectcalico/calicoctl/releases/download/<VERSION>/calicoctl"
-# curl -o calicoctl -O -L  "https://github.com/projectcalico/calicoctl/releases/download/v3.20.2/calicoctl"
-# chmod +x calicoctl
-# mv calicoctl /usr/bin
+# calicoctl install
+# curl -o calicoctl -O -L  "https://github.com/projectcalico/calicoctl/releases/download/<VERSION>/calicoctl"
+curl -o calicoctl -O -L  "https://github.com/projectcalico/calicoctl/releases/download/v3.20.2/calicoctl"
+chmod +x calicoctl
+mv calicoctl /usr/bin
 
 # etcdctl install
 apt install etcd-client -y
