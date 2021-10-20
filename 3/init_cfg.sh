@@ -33,7 +33,7 @@ apt update
 apt-get install bridge-utils net-tools jq tree resolvconf wireguard -y
 
 # config dnsserver ip
-echo 'nameserver 168.126.63.1' > /etc/resolvconf/resolv.conf.d/head
+echo -e "nameserver 168.126.63.1\nnameserver 8.8.8.8" > /etc/resolvconf/resolv.conf.d/head
 resolvconf -u
 
 # docker install
