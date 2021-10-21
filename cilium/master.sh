@@ -40,7 +40,7 @@ KUBE_PS1_CLUSTER_FUNCTION=get_cluster_short
 KUBE_PS1_SUFFIX=') '
 PS1='$(kube_ps1)'$PS1
 EOT
-kubectl config rename-context "kubernetes-admin@kubernetes" "admin-k8s"
+kubectl config rename-context "kubernetes-admin@kubernetes" "cilium-k8s"
 
 # Install Helm v3
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
