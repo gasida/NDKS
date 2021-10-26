@@ -48,8 +48,7 @@ kubectl config rename-context "kubernetes-admin@kubernetes" "admin-k8s"
 ## kube-tail install
 curl -O https://raw.githubusercontent.com/johanhaleby/kubetail/master/kubetail
 chmod 744 kubetail && mv kubetail /usr/bin
-curl -O https://raw.githubusercontent.com/johanhaleby/kubetail/master/completion/kubetail.bash
-source kubetail.bash
+curl -o /root/kubetail.bash https://raw.githubusercontent.com/johanhaleby/kubetail/master/completion/kubetail.bash
 cat <<EOT>> ~/.bash_profile
 source /root/kubetail.bash
 EOT
