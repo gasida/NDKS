@@ -1,0 +1,17 @@
+kind: Pod
+metadata:
+  name: myweb2
+spec:
+  containers:
+  - name: myweb2-nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+      protocol: TCP
+
+  - name: myweb2-netshoot
+    image: nicolaka/netshoot
+    command: ["/bin/bash"]
+    args: ["-c", "while true; do sleep 5; curl localhost; done"]
+
+  terminationGracePeriodSeconds: 0
