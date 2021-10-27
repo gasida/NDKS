@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myweb
+spec:
+  containers:
+  - image: nginx:alpine
+    name: myweb-container
+    ports:
+    - containerPort: 80
+      protocol: TCP
+  terminationGracePeriodSeconds: 0
