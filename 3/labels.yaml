@@ -12,6 +12,7 @@ spec:
     ports:
     - containerPort: 80
       protocol: TCP
+  terminationGracePeriodSeconds: 0
 ---
 apiVersion: v1
 kind: Pod
@@ -27,3 +28,4 @@ spec:
     ports:
     - containerPort: 80
       protocol: TCP
+  terminationGracePeriodSeconds: 0
