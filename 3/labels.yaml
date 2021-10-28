@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myweb1
+  labels:
+    environment: production
+    app: nginx
+spec:
+  containers:
+  - image: nginx
+    name: myweb1
+    ports:
+    - containerPort: 80
+      protocol: TCP
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myweb2
+  labels:
+    environment: dev
+    app: nginx
+spec:
+  containers:
+  - image: nginx
+    name: myweb2
+    ports:
+    - containerPort: 80
+      protocol: TCP
