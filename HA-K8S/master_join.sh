@@ -44,7 +44,7 @@ EOF
 for (( m=1; m<=$1; m++ )); do echo "    server master$m 192.168.100.1$m:6443 check" >> /etc/haproxy/haproxy.cfg; done
 systemctl restart haproxy && systemctl enable haproxy
 
-# init kubernetes 
+# join kubernetes 
 MYIP=$(ip addr show enp0s8 | grep -w inet | grep -v 'inet 127' | awk '{ print $2 }' | egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')
 kubeadm join 192.168.100.100:16443 --control-plane --apiserver-advertise-address=$MYIP --discovery-token-unsafe-skip-ca-verification --token 123456.1234567890123456 --certificate-key=1234567890123456789012345678901234567890123456789012345678901234
 
