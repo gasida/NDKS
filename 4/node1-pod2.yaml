@@ -9,7 +9,6 @@ spec:
     image: nicolaka/netshoot
     command: ["tail"]
     args: ["-f", "/dev/null"]
-  terminationGracePeriodSeconds: 0
 ---
 apiVersion: v1
 kind: Pod
@@ -22,4 +21,3 @@ spec:
     image: nicolaka/netshoot
     command: ["tail"]
     args: ["-f", "/dev/null"]
-  terminationGracePeriodSeconds: 0
