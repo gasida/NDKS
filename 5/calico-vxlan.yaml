@@ -3848,6 +3848,9 @@ spec:
             # Auto-detect the BGP IP address.
             - name: IP
               value: "autodetect"
+            # Block size to use for the IPv4 POOL created at startup. Block size for IPv4 should be in the range 20-32. default 24
+            - name: CALICO_IPV4POOL_BLOCK_SIZE
+              value: "24"
             # Enable IPIP
             - name: CALICO_IPV4POOL_IPIP
               value: "Never"
