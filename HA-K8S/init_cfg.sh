@@ -31,7 +31,7 @@ systemctl stop apparmor && systemctl disable apparmor
 
 # package install
 apt update
-apt-get install bridge-utils net-tools jq tree resolvconf wireguard -y
+apt-get install bridge-utils net-tools jq tree resolvconf -y
 
 # config dnsserver ip
 echo -e "nameserver 168.126.63.1\nnameserver 8.8.8.8" > /etc/resolvconf/resolv.conf.d/head
