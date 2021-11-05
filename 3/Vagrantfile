@@ -1,6 +1,6 @@
 # Base Image
 BOX_IMAGE = "ubuntu/focal64"
-BOX_VERSION = "20211021.0.0"
+BOX_VERSION = "20211026.0.0"
 
 # max number of worker nodes
 N = 2
@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
       subconfig.vm.box = BOX_IMAGE
       config.vm.box_version = BOX_VERSION
       subconfig.vm.provider "virtualbox" do |v|
-        v.name = "k8s-m"
+        v.name = "Flannel-k8s-m"
         v.memory = 2048
         v.cpus = 2
         v.linked_clone = true
@@ -30,8 +30,8 @@ Vagrant.configure("2") do |config|
       subconfig.vm.box = BOX_IMAGE
       config.vm.box_version = BOX_VERSION
       subconfig.vm.provider "virtualbox" do |v|
-        v.name = "k8s-w#{i}"
-        v.memory = 1536
+        v.name = "Flannel-k8s-w#{i}"
+        v.memory = 1536 
         v.cpus = 2
         v.linked_clone = true
       end
