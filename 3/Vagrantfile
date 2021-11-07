@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
 #-----Manager Node
     config.vm.define "k8s-m" do |subconfig|
       subconfig.vm.box = BOX_IMAGE
-      config.vm.box_version = BOX_VERSION
+      subconfig.vm.box_version = BOX_VERSION
       subconfig.vm.provider "virtualbox" do |v|
         v.name = "Flannel-k8s-m"
         v.memory = 2048
@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
   (1..N).each do |i|
     config.vm.define "k8s-w#{i}" do |subconfig|
       subconfig.vm.box = BOX_IMAGE
-      config.vm.box_version = BOX_VERSION
+      subconfig.vm.box_version = BOX_VERSION
       subconfig.vm.provider "virtualbox" do |v|
         v.name = "Flannel-k8s-w#{i}"
         v.memory = 1536 
