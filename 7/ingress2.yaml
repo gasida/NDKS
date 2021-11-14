@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-2
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /dkos
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: ndks.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: svc3-admin
+          servicePort: 8080
+  - host: "*.ndks.com"
+    http:
+      paths:
+      - path: /echo
+        backend:
+          serviceName: svc3-admin
+          servicePort: 8080
