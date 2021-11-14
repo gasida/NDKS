@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-https
+  labels:
+    app: https
+spec:
+  containers:
+  - name: container
+    image: k8s.gcr.io/echoserver:1.6
+  terminationGracePeriodSeconds: 0
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-https
+spec:
+  selector:
+    app: https
+  ports:
+  - port: 8080
