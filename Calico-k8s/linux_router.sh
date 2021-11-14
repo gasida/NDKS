@@ -71,6 +71,7 @@ debug bgp updates
 !
 router bgp 64512
 bgp router-id 10.1.1.254
+bgp graceful-restart
 maximum-paths ibgp 4
 network 10.1.1.0/24
 network 10.1.2.0/24
