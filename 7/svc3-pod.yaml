@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy3-adminsrv
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: adminsrv
+  template:
+    metadata:
+      labels:
+        app: adminsrv
+    spec:
+      containers:
+      - name: pod-admin
+        image: k8s.gcr.io/echoserver:1.5
+        ports:
+        - containerPort: 8080
+      terminationGracePeriodSeconds: 0
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc3-admin
+spec:
+  ports:
+    - name: admin-port
+      port: 9003
+      targetPort: 8080
+  selector:
+    app: adminsrv
