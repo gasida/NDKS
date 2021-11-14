@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
 #-----Router Node
     config.vm.define "k8s-rtr" do |subconfig|
       subconfig.vm.box = BOX_IMAGE
-      config.vm.box_version = BOX_VERSION
+      subconfig.vm.box_version = BOX_VERSION
       subconfig.vm.provider "virtualbox" do |v|
         v.customize ["modifyvm", :id, "--groups", "/Calico-Advanced-Lab"]
         v.name = "Calico-k8s-rtr"
@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
 #-----Manager Node
     config.vm.define "k8s-m" do |subconfig|
       subconfig.vm.box = BOX_IMAGE
-      config.vm.box_version = BOX_VERSION
+      subconfig.vm.box_version = BOX_VERSION
       subconfig.vm.provider "virtualbox" do |v|
         v.customize ["modifyvm", :id, "--groups", "/Calico-Advanced-Lab"]
         v.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
@@ -49,7 +49,7 @@ Vagrant.configure("2") do |config|
 #-----Worker Node Subnet2
     config.vm.define "k8s-w0" do |subconfig|
       subconfig.vm.box = BOX_IMAGE
-      config.vm.box_version = BOX_VERSION
+      subconfig.vm.box_version = BOX_VERSION
       subconfig.vm.provider "virtualbox" do |v|
         v.customize ["modifyvm", :id, "--groups", "/Calico-Advanced-Lab"]
         v.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
@@ -71,7 +71,7 @@ end
   (1..N).each do |i|
     config.vm.define "k8s-w#{i}" do |subconfig|
       subconfig.vm.box = BOX_IMAGE
-      config.vm.box_version = BOX_VERSION
+      subconfig.vm.box_version = BOX_VERSION
       subconfig.vm.provider "virtualbox" do |v|
         v.customize ["modifyvm", :id, "--groups", "/Calico-Advanced-Lab"]
         v.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
