@@ -47,5 +47,4 @@ Vagrant.configure("2") do |config|
       subconfig.vm.provision "shell", path: "https://raw.githubusercontent.com/gasida/NDKS/main/cilium/worker.sh"
     end
   end
-
 end
