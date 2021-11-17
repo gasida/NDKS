@@ -56,7 +56,7 @@ curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bas
 # Install Clilium Hubble w/Helm
 helm repo add cilium https://helm.cilium.io/
 #helm install cilium cilium/cilium --version 1.10.5 --namespace kube-system --set kubeProxyReplacement=strict --set k8sServiceHost=192.168.200.10 --set k8sServicePort=6443 --set ipam.mode=cluster-pool --set ipam.operator.clusterPoolIPv4PodCIDR=172.16.0.0/16 --set ipam.operator.clusterPoolIPv4MaskSize=24 --set hubble.relay.enabled=true --set hubble.ui.enabled=true
-helm install cilium cilium/cilium --version 1.10.5 --namespace kube-system --set kubeProxyReplacement=strict --set k8sServiceHost=192.168.200.10 --set k8sServicePort=6443 --set ipam.mode=cluster-pool --set ipam.operator.clusterPoolIPv4PodCIDR=172.16.0.0/16 --set ipam.operator.clusterPoolIPv4MaskSize=24
+helm install cilium cilium/cilium --version 1.10.5 --namespace kube-system --set kubeProxyReplacement=strict --set k8sServiceHost=192.168.200.10 --set k8sServicePort=6443 --set ipam.mode=cluster-pool --set ipam.operator.clusterPoolIPv4PodCIDR=172.16.0.0/16 --set ipam.operator.clusterPoolIPv4MaskSize=24 --set tunnel=geneve
 curl -L --remote-name-all https://github.com/cilium/cilium-cli/releases/latest/download/cilium-linux-amd64.tar.gz
 tar xzvfC cilium-linux-amd64.tar.gz /usr/local/bin
 
