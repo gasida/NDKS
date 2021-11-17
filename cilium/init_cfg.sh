@@ -25,8 +25,9 @@ sysctl --system
 echo "192.168.200.10 k8s-m" >> /etc/hosts
 for (( i=1; i<=$1; i++  )); do echo "192.168.200.10$i k8s-w$i" >> /etc/hosts; done
 
-# apparmor disable
+# apparmor ufw disable
 systemctl stop apparmor && systemctl disable apparmor
+systemctl stop ufw && systemctl disable ufw
 
 # package install
 apt update
@@ -44,9 +45,6 @@ cat <<EOF | tee /etc/docker/daemon.json
 {"exec-opts": ["native.cgroupdriver=systemd"]}
 EOF
 systemctl daemon-reload && systemctl restart docker
-
-# package install
-apt-get install bridge-utils net-tools jq tree wireguard resolvconf -y
 
 # swap off
 swapoff -a
