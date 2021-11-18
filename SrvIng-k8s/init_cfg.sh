@@ -54,6 +54,6 @@ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https:/
 apt-get update
 #apt-get install -y kubelet kubeadm kubectl
 #apt-get install -y kubelet=<VERSION> kubectl=<VERSION> kubeadm=<VERSION>
-apt-get install -y kubelet=1.21.5-00 kubectl=1.21.5-00 kubeadm=1.21.5-00
+apt-get install -y kubelet=1.21.7-00 kubectl=1.21.7-00 kubeadm=1.21.7-00
 apt-mark hold kubelet kubeadm kubectl
 systemctl enable kubelet && systemctl start kubelet

@@ -10,7 +10,6 @@ chown $(id -u):$(id -g) $HOME/.kube/config
 
 # calico install v3.20.2
 #kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
-#kubectl apply -f https://raw.githubusercontent.com/gasida/NDKS/main/4/calico-ndks.yaml
 kubectl apply -f https://raw.githubusercontent.com/gasida/NDKS/main/5/calico-vxlan.yaml
 
 # calicoctl install
