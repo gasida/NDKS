@@ -54,6 +54,20 @@ kubectl config rename-context "kubernetes-admin@kubernetes" "admin-k8s"
 curl -O https://raw.githubusercontent.com/johanhaleby/kubetail/master/kubetail
 chmod 744 kubetail && mv kubetail /usr/bin
 curl -o /root/kubetail.bash https://raw.githubusercontent.com/johanhaleby/kubetail/master/completion/kubetail.bash
-cat <<EOT>> ~/.bash_profile
+cat <<EOT >> ~/.bash_profile
 source /root/kubetail.bash
 EOT
+
+# Config Calico BGP
+cat <<EOF | calicoctl apply -f -
+apiVersion: projectcalico.org/v3
+kind: BGPPeer
+metadata:
+  name: bgppeer-rtr
+spec:
+  peerIP: 192.168.10.254
+  asNumber: 64512
+EOF
+
+# Config Calico CrossSubnet Mode
+calicoctl get ippool default-ipv4-ippool -o yaml | sed -e "s/ipipMode: Always/ipipMode: CrossSubnet/" | calicoctl apply -f -
