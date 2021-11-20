@@ -65,7 +65,7 @@ Vagrant.configure("2") do |config|
       subconfig.vm.provision "shell", path: "https://raw.githubusercontent.com/gasida/NDKS/main/Calico-k8s/init_cfg.sh", args: N
       subconfig.vm.provision "shell", path: "https://raw.githubusercontent.com/gasida/NDKS/main/Calico-k8s/route2.sh"
       subconfig.vm.provision "shell", path: "https://raw.githubusercontent.com/gasida/NDKS/main/Calico-k8s/worker.sh"
-end
+    end
 
 #-----Worker Node Subnet1
   (1..N).each do |i|
