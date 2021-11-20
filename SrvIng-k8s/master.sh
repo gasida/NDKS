@@ -57,17 +57,3 @@ curl -o /root/kubetail.bash https://raw.githubusercontent.com/johanhaleby/kubeta
 cat <<EOT >> ~/.bash_profile
 source /root/kubetail.bash
 EOT
-
-# Config Calico BGP
-cat <<EOF | calicoctl apply -f -
-apiVersion: projectcalico.org/v3
-kind: BGPPeer
-metadata:
-  name: bgppeer-rtr
-spec:
-  peerIP: 192.168.10.254
-  asNumber: 64512
-EOF
-
-# Config Calico CrossSubnet Mode
-calicoctl get ippool default-ipv4-ippool -o yaml | sed -e "s/ipipMode: Always/ipipMode: CrossSubnet/" | calicoctl apply -f -
