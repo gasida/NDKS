@@ -14,6 +14,8 @@ Vagrant.configure("2") do |config|
       subconfig.vm.box = BOX_IMAGE
       subconfig.vm.box_version = BOX_VERSION
       subconfig.vm.provider "virtualbox" do |v|
+        v.customize ["modifyvm", :id, "--groups", "/K8S-HA-Lab"]
+        v.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
         v.name = "HA-k8s-m0"
         v.memory = 2048
         v.cpus = 2
@@ -33,6 +35,8 @@ Vagrant.configure("2") do |config|
       subconfig.vm.box = BOX_IMAGE
       subconfig.vm.box_version = BOX_VERSION
       subconfig.vm.provider "virtualbox" do |v|
+        v.customize ["modifyvm", :id, "--groups", "/K8S-HA-Lab"]
+        v.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
         v.name = "HA-k8s-m#{m}"
         v.memory = 2048
         v.cpus = 2
@@ -53,6 +57,7 @@ Vagrant.configure("2") do |config|
       subconfig.vm.box = BOX_IMAGE
       subconfig.vm.box_version = BOX_VERSION
       subconfig.vm.provider "virtualbox" do |v|
+        v.customize ["modifyvm", :id, "--groups", "/K8S-HA-Lab"]
         v.name = "HA-k8s-w#{n}"
         v.memory = 1024
         v.cpus = 1
@@ -61,7 +66,7 @@ Vagrant.configure("2") do |config|
       subconfig.vm.hostname = "k8s-w#{n}"
       subconfig.vm.synced_folder "./", "/vagrant", disabled: true
       subconfig.vm.network "private_network", ip: "192.168.100.10#{n}"
-      subconfig.vm.network "forwarded_port", guest: 22, host: "5001#{n}", auto_correct: true, id: "ssh"
+      subconfig.vm.network "forwarded_port", guest: 22, host: "5011#{n}", auto_correct: true, id: "ssh"
       subconfig.vm.provision "shell", path: "https://raw.githubusercontent.com/gasida/NDKS/main/HA-K8S/init_cfg.sh", args: [M, N]
       subconfig.vm.provision "shell", path: "https://raw.githubusercontent.com/gasida/NDKS/main/HA-K8S/worker.sh"
     end
