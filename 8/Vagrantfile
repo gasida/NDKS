@@ -1,6 +1,6 @@
 # Base Image
 BOX_IMAGE = "ubuntu/hirsute64"
-BOX_VERSION = "20211202.0.0"
+BOX_VERSION = "20211208.0.0"
 
 # max number of worker nodes
 N = 2
