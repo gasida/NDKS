@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   name: pod1
 spec:
+  nodeName: k8s-w1
   containers:
   - name: pod1
     image: nicolaka/netshoot
@@ -15,6 +16,7 @@ kind: Pod
 metadata:
   name: pod2
 spec:
+  nodeName: k8s-w2
   containers:
   - name: pod2
     image: nicolaka/netshoot
@@ -27,6 +29,7 @@ kind: Pod
 metadata:
   name: pod3
 spec:
+  nodeName: k8s-w0
   containers:
   - name: pod3
     image: nicolaka/netshoot
